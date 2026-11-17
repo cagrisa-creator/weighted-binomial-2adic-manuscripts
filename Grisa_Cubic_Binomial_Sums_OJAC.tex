@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[letterpaper,margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\DeclareMathSizes{10}{10}{8}{6}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\Z}{\mathbb Z_2}
+\newcommand{\R}{\mathbb Z_2\langle z\rangle}
+\newcommand{\units}{\mathbb Z_2^\times}
+\title{Injectivity of weighted cubic binomial sums on the 2-adic integers}
+\author{C\'esar Augusto Grisa\\{\small Independent Researcher}\\
+{\small Caxias do Sul, RS, Brazil}\\
+{\small\texttt{cagrisa@id.uff.br}}}
+\date{17 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For each even 2-adic integer $c$ we consider the continuous interpolation of the weighted cubic binomial sum $\sum_k c^k\binom{n}{k}^3$. We classify the weights for which this interpolation is injective and determine the image at every injective weight. When $v_2(c)=3$, the fiber over $1$ contains exactly two points except at a single weight. At that exceptional weight the two points merge into a zero of order four of the interpolation minus its value at the origin.
+\end{abstract}
+
+\noindent\textbf{2020 Mathematics Subject Classification.} Primary 11S80. Secondary 11B65.
+\par\noindent\textbf{Keywords.} 2-adic interpolation, weighted binomial sums, fiber multiplicity.
+\section{Introduction and statement of the classification}
+For $c\in2\Z$ set $G_c(x)=\sum_{k\ge0}c^k\binom{x}{k}^3$ and let $S_3=\{z^3:z\in\Z\}$. Weighted finite sums of powers of binomial coefficients occur, for example, in Simsek's equations (1.2) and (1.3) \cite{simsek}. We fix the weight and vary the upper index in $\Z$. This asks when the values at two different 2-adic indices can coincide. The distinction matters even when all natural-index sums at a positive integer weight are strictly increasing.
+\begin{theorem}
+$G_c$ is injective precisely for nonzero weights satisfying $v_2(c)=2$ or $v_2(c)\ge4$. Writing $r=v_2(c)$, its image in those cases is respectively
+\[
+ (5+8\Z)\ \cup\ (17+32\Z)\ \cup\ (1+128S_3),
+ \qquad 1+2^rS_3 .
+\]
+With Haar measure normalized by $\mu(\Z)=1$, the two measures are $9/56$ and $2^{-r}4/7$.
+\end{theorem}
+The change in behavior from $r=2$ to $r=3$ can be read from a single target, with one exceptional weight described below. Throughout, $v=v_2$, $v(0)=\infty$, and a restricted integral series has integral coefficients tending to zero.
+\section{Expansion on residue classes}
+The binomial polynomials take values in $\Z$ by density, so the defining series converges uniformly. In the variable $z$ of a disk $x=a+2^s z$, the Gauss valuation of term $k$ is at least
+\[
+ rk-3v(k!)+3\sum_{i=0}^{k-1}\min\{v(a-i),s\}.
+\tag{1}
+\]
+This follows by multiplying its $3k$ linear factors. In particular for $s=3$ the bound is at least $rk-3v(\lfloor k/8\rfloor!)$ by counting residue classes modulo $2,4,8$. This tends to infinity for all our weights. A series $b+uz+2R(z)$ with $u$ odd and $R$ restricted integral is a bijective isometry by contraction. An integral unit factor of the form $1+2R(z)$ has an analytic cube root in $1+2\R$, by the binomial series of exponent $1/3\in\Z$. Consequently $z(1+2R(z))^{1/3}$ is also a bijective isometry.
+
+\section{Injective weights}
+If $r\ge4$, divide $G_c(x)-1$ by $cx^3$. The $k=1$ term gives 1. Every remaining term has coefficient valuation at least $(k-1)r-3v(k!)\ge k-1$. Thus $G_c=1+c\psi^3$ for a bijective isometry $\psi$ fixing zero. All 2-adic units are cubes and cubing is injective on $\Z$. The image and its measure follow from $\mu(S_3)=\sum_{i\ge0}2^{-3i-1}=4/7$.
+
+For $r=2$ take $c=4+8T$, $x=a+4z$. The following finite coefficient computation gives the local images. The last column bounds all higher coefficients of the variation from below.
+\[
+\begin{array}{c|c|c|c}
+ a &\text{first dominating degree}&\text{valuation}&\text{higher degrees}\\\hline
+0&3&7&\ge8\\
+1,3&1&4&\ge5\\
+2&1&5&\ge6
+\end{array}
+\]
+For clarity, every finite computation in this proof can be reproduced as follows. Start with $P_0=1$ and form $P_k=P_{k-1}(a+4z-k+1)^3$. Sum $P_k(4+8T)^k/(k!)^3$ for $1\le k\le4$, dropping the constant in $z$. The coefficient in the indicated degree divided by the indicated power of two reduces to 1 as a polynomial in $T$ modulo 2. At $a=0$ the lower degrees vanish. For $k\ge5$, (1) is at least 10: for $5\le k\le15$ substitute the minimal counts $\lfloor k/2\rfloor,\lfloor k/4\rfloor$ in (1); for $k\ge16$ use $2k-3v(\lfloor k/4\rfloor!)\ge 5k/4$. Thus the table applies to the entire series.
+
+The two odd branches are regular of scale 16; their centers differ by $G_c(3)-G_c(1)=c(c+1)(c+26)$ of valuation 3. Their union is $5+8\Z$. The branch $2+4\Z$ is regular of scale 32, centered at $1+8c+c^2\equiv17\bmod32$. On the zero branch the table gives a unit times a cube after an isometry, with image $1+128S_3$. These images are disjoint, so injectivity follows. Their measures sum to $1/8+1/32+4/(7\cdot128)=9/56$.
+
+\section{Collisions at weights of valuation one}
+If $c\equiv6\bmod8$, the branch $1+8\Z$ maps bijectively onto $1+c+16\Z$. Indeed the $k=1$ term contributes $24cz$ as linear variation. All higher coefficients of this term are divisible by 32. For $k=2,\ldots,6$ the bounds (1) on this disk are $8,9,7,8,12$; for $k\ge7$ use the lower bound $5k/8$. The value $G_c(3)$ lies in the stated image by the center difference just computed. Its index 3 lies outside $1+8\Z$, giving the collision.
+
+For $c=2+8T$, take the branch $3+8z$. In $(G_c(3+8z)-G_c(3))/64$ the linear coefficient is integral, the quadratic one is odd and all coefficients of higher degree are even. One verifies this by the same recurrence for $P_k$, now with $a=3$, scale 8, weight $2+8T$ and $k\le11$. For $k\ge12$ bound (1) exceeds 7. The reduction has degree exactly two. For each attained level the Weierstrass polynomial is monic quadratic. At any regular attained level one simple rational root therefore gives a second distinct rational integral root. Such a level exists since the nonconstant analytic function has infinite image and its derivative has only finitely many zeros. This accounts for every weight with $r=1$.
+
+\section{The transition at valuation three}
+\begin{theorem}
+There is exactly one $\lambda\in8+16\Z$ for which the fiber $G_\lambda^{-1}(1)$ is a singleton. It satisfies $\lambda\equiv8\bmod64$. For every other $c$ of valuation three that fiber consists of $0$ and one point $x_c$ with
+\[
+ v(x_c)=v(c-\lambda)-3.
+\]
+At $\lambda$, $G_\lambda-1$ has order four at zero and $G_\lambda$ is locally noninjective there.
+\end{theorem}
+\begin{proof}
+Write $c=8u$, $u$ odd. On even inputs one has the restricted factorization
+\[
+ G_c(2z)-1=128 z^3 L_u(z),\qquad
+ L_u(z)=\tfrac12\{u+u^2(2z-1)^3\}+4R_u(z).
+\tag{2}
+\]
+Indeed the displayed terms are exactly those of indices 1 and 2. For $k\ge3$ the bound (1) before dividing by 128 is $3s_2(k)+3\lceil k/2\rceil\ge9$, where $s_2$ is the binary digit sum. Removing the factor $z^3$ only shifts coefficients. The bound tends to infinity. The bracket divided by 2 is integral since $u-u^2$ is even. Its linear coefficient is $3u^2$, while its higher coefficients are even. Thus $L_u$ is a bijective isometry with unit derivative. It has a unique zero $\alpha$, with $v(\alpha)=v(L_u(0))$. For odd $x$ the $k=1$ term of $G_c(x)-1$ has valuation 3 and the rest have valuation at least 6. All preimages of 1 therefore arise from (2).
+
+The coefficient of $x^3$ at zero is
+\[
+ A(c)=\sum_{k\ge1}(-1)^{k-1}c^k/k^3,\qquad L_u(0)=A(8u)/16 .
+\]
+The local coefficient follows by extracting the three factors of $x$ from the binomial cube. Write $A(8u)=8uH(u)$. Then $H=1-u+8R$ since for $k\ge3$ the coefficients have valuation $3(k-1)-3v(k)\ge3$ and tend to zero. Hence $H$ is a bijective isometry with a single zero $u_*\equiv1\bmod8$. Putting $\lambda=8u_*$ yields $v(A(c))=v(c-\lambda)$ for the weights considered here. If $c\ne\lambda$, the second input is $2\alpha$, of the claimed valuation.
+
+If $c=\lambda$, $L_u(0)=0$ and its linear coefficient is a unit. Equation (2) now has order four at the origin. More explicitly, $L_u(z)=b z(1+zR(z))$ with $b$ odd. Substituting $z=16w$, the unit factor admits an analytic fourth root congruent to 1 modulo 2. This follows by the convergent binomial expansion, since $v(\binom{1/4}{j}16^j)\ge2j-v(j!)\ge j+1$ for $j\ge1$. The resulting coordinate $w(1+16wR(16w))^{1/4}$ is a bijective isometry. Opposite nonzero coordinates give equal fourth powers. This yields collisions inside that disk although the fiber at 1 has only its root at zero.
+\end{proof}
+For example, at $c=-8$ the second preimage of $1$ is the natural index $2$, since $G_{-8}(2)=1$. At $c=8$ the second preimage has valuation $3$. Indeed, in $H(1)$ the terms of indices $1,2$ cancel, the term of index $4$ has valuation $3$ and all other terms have higher valuation. The exceptional weight thus changes the fiber even within one valuation class of weights.
+
+The constant weight gives $G_0=1$. Together the four regimes prove Theorem~1. The transition formula quantifies how the nonzero preimage approaches the origin as $c$ approaches $\lambda$. Determining all fiber multiplicities at noninjective weights remains a further question.
+\paragraph{Supplementary material.}
+The accompanying Python script checks the normalized cubic map modulo $256$ and lifts the second preimage of $1$ for $64$ sample weights of valuation three. The arguments above establish the claims over $\Z$.
+
+\begin{thebibliography}{9}
+\bibitem{simsek} Y. Simsek, Generating functions for finite sums involving higher powers of binomial coefficients, \emph{J. Math. Anal. Appl.} (2019), \href{https://doi.org/10.1016/j.jmaa.2019.05.015}{doi:10.1016/j.jmaa.2019.05.015}.
+\end{thebibliography}
+\end{document}

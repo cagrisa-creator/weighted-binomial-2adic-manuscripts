@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[hidelinks]{hyperref}
+\DeclareMathSizes{10}{10}{8}{6}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\Z}{\mathbb Z_2}
+\newcommand{\U}{\mathbb Z_2^\times}
+\newcommand{\T}{\mathbb Z_2\langle z\rangle}
+\title{Images and fiber multiplicities of a weighted Delannoy family over the 2-adic integers}
+\author{C\'esar Augusto Grisa}
+\date{17 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study the dependence on the even weight $c$ of the map
+$F_c(x)=\sum_{k\ge0}c^k\binom{x}{k}^2$ on the 2-adic integers.
+Two weights give injective maps. At every other nonzero weight the largest fiber has either two or three points. We give the parameter classes explicitly. Near the ordinary Delannoy weight $2$, the image on the residue class of $-1$ consists of a finite list of valuation shells and one terminal set. The parity of $v_2(c-2)-3$ determines that set. We also describe the two quadratic branches at weights congruent to $4$ modulo $16$ in coordinates centered at their critical points.
+\end{abstract}
+
+\noindent\textbf{2020 Mathematics Subject Classification.} Primary 11S80. Secondary 11B65.
+\par\noindent\textbf{Keywords.} 2-adic interpolation, weighted Delannoy sums, fiber multiplicity.
+
+\section{The parameter and the fiber}
+Write $v=v_2$, $v(0)=\infty$, and normalize Haar measure $\mu$ by $\mu(\Z)=1$. Write $S_m=\{x^m:x\in\Z\}$. For natural indices these are weighted binomial sums. Sun's polynomial $D_n(s)$ satisfies $D_n(s)=(1+s)^n F_{s/(1+s)}(n)$ where the quotient is defined \cite{sun}. At $c=2$ the natural-index sequence is the central Delannoy sequence. Congruences and differences for that sequence have been studied by Lengyel and in the author's earlier manuscript \cite{lengyel,grisa}. Here the input ranges over $\Z$, the output level is arbitrary and the weight varies. The interpolation of transformed Legendre polynomials in their degree in \cite{km} provides a related use of local analytic methods.
+\begin{theorem}
+Let $\rho$ be the unique zero of $K(c)=\sum_{k\ge1}c^k/k^2$ with $v(c)=2$. Then $\rho\equiv12\bmod32$. For $c\in2\Z$, the maximum cardinality $M(c)$ of a fiber is given by
+\[
+\begin{array}{c|l}
+M(c)&\text{weights}\\\hline
+\infty& c=0\\
+1 & c=2,\rho\\
+2 & 0\ne c\in8\Z,\ \text{or }c\equiv4\bmod16\\
+3 & c\equiv2\bmod4,\ c\ne2,\ \text{or } c\equiv12\bmod16,\ c\ne\rho .
+\end{array}
+\]
+\end{theorem}
+The distinction can already be seen at $c=2,4,6$, where the respective maxima are one, two and three. In the constant case the fiber at $1$ is the whole domain.
+
+\section{Local coefficients}
+Put $B(c)=-2\sum_{k\ge1}c^k H_{k-1}/k^2$, where $H_j$ is a harmonic number and $H_0=0$. Squaring the falling factorial gives
+$F_c(x)=1+K(c)x^2+B(c)x^3+O(x^4)$ near zero.
+On $x=a+4z$, the $k$th term has Gauss valuation at least
+\[
+ L_a(k)=kv(c)-2v(k!)+2E_a(k)+2Q_a(k).
+\]
+Here $E_a,Q_a$ count the integers in $[0,k)$ congruent to $a$ modulo 2 and 4. This follows by factoring each term $a-j+4z$. The bound tends to infinity, so these expansions and their derivatives converge on the closed disk.
+
+The series $K(4u)/(4u)$ is $1+u+4R(u)$ with $R$ integral restricted, and is $1+u+4u^3$ modulo 8. It has one simple zero $u_*\equiv3\bmod8$ by contraction. Set $\rho=4u_*$. The reduction of $K(2u)$ is $u^2+u^4$. Cohen proved $K(2)=0$ \cite{cohen}. Differentiation gives $K'(c)=-\log(1-c)/c$, $K'(2)=0$, $K''(2)=-1/2$. Dividing $K(2u)$ by its four linear factors with multiplicities leaves a restricted unit congruent to 1 modulo 2. Thus
+\[
+ v(K(c))=v(c)+2v(c-2)+v(c-\rho)-4 .
+\]
+In $B(c)$ the unique term of smallest valuation comes from $k=4$ when $v(c)=1$ and from $k=2$ when $v(c)=2$. This follows from
+$1+kv(c)-2v(k)-\lfloor\log_2(k-1)\rfloor$ for $k\ge2$ and direct evaluation at the minimizing indices. The two minima are 0 and 3, respectively.
+
+Here are the finite local computations used below. A regular branch with exponent $s$ means that $(F_c(a+4z)-F_c(a))/2^s$ is congruent coefficientwise to $z$ modulo 2 and hence maps $\Z$ isometrically onto $\Z$.
+\[
+\begin{array}{c|c|l}
+c&a&\text{local data}\\\hline
+2\bmod4&1,2&\text{regular }4\\
+2\bmod4&0&(F_c(4z)-1)/64=z^2(K/4+Bz+2z^2R)\\
+12\bmod32&1,3;\ 2&\text{regular }5;\ 7\\
+12\bmod32&0&(F_c(4z)-1)/512=z^2(K/32+(B/8)z+2z^2R)\\
+28\bmod32&1,3;\ 2&\text{regular }5;\ 7\\
+28\bmod32&0&(F_c(4z)-1)/256=z^2(A+2bz+4z^2R),\ A,b\in\U\\
+4\bmod16&1,3&\text{regular }5
+\end{array}
+\]
+For the remaining even branches at $c\equiv4\bmod16$, put $H=(F_c(a+4z)-F_c(a))/128$. Its quadratic coefficient is odd. Its linear and higher coefficients are even, and $v(j[z^j]H)\ge2$ for $j\ge3$.
+
+For reproducibility the entries can be obtained by this finite recipe. Substitute $c=c_0+bT$ for the congruence class in the table. Starting at $P_0=1$ form $P_k=P_{k-1}(a+4z-k+1)^2$. Sum $(c_0+bT)^kP_k/(k!)^2$ through $k=4$ for $v(c)=2$ and through $k=8$ for $v(c)=1$. Read the coefficients modulo twice the specified leading power, or modulo $2^{10}$ for the shapes at valuation 2. The omitted terms at valuation 2 have $L_a(k)\ge10$, and $L_0(k)\ge12$. At valuation 1 the tails from $k=9$ satisfy $L_0(k)\ge8$ and $L_1(k),L_2(k)\ge5$. These bounds follow by the count above (for large $k$ use $v(k!)=k-s_2(k)$, $E\ge\lfloor k/2\rfloor$, $Q\ge\lfloor k/4\rfloor$; checking $k<32$ suffices).
+
+\section{The branch through zero}
+Consider $f=z^2(A+bz+2z^2R)$, $b$ odd, $R\in\T$. For $A=0$ the analytic cube root of the trailing unit gives $f=b\psi^3$ with $\psi=z+2G(z)$ a bijective isometry fixing 0. For $A\ne0$, put $h=v(A)$. The image is
+\[
+ C_h=\bigcup_{i<h,\ i\ge0}2^{3i}\U\ \cup\ 2^{3h+1}\Z .
+\]
+Indeed, the odd inputs map bijectively onto $A+b+2\Z$. For $h>0$ the even inputs give eight times a map of the same form with $v(A/2)=h-1$. At $h=0$ the odd inputs already cover all even targets. Preparation gives at most three roots at each level. The derivative is $zQ(z)$ with $Q=2A+3bz+2z^2(4R+zR')$ an isometry. Its root $\xi$ has valuation $h+1$. Outside the two critical values every attained level has one or three roots by the quadratic factor remaining after removing one root of the prepared cubic. Counting regular sheets by change of variables gives
+\[
+ I_h=\mu(C_h)=\tfrac47(1-8^{-h-1}),\qquad
+ T_h=\mu\{y:\# f^{-1}(y)=3\}=\frac1{6\cdot8^{h+1}} .
+\]
+In detail, $\int|f'|=\int|z||z-\xi|
+=\tfrac12\sum_{0\le i<h+1}8^{-i}+\tfrac13\,8^{-h-1}$,
+by splitting at $v(\xi)$. Then $2T_h=\int|f'|-I_h$.
+
+For $c\equiv12\bmod32$ the three parts of the image are
+$13+16\Z$, $65+128\Z$ and $1+512 C_{v(c-\rho)-5}$. At $\rho$ replace $C_h$ by $S_3$. The first two parts are regular and disjoint from the third. For $c\equiv28\bmod32$ the regular parts are $13+16\Z$ and $1+128\Z$. The branch at zero is contained in the second one. Its normalized function has preparation degree two, and derivative $2zQ(z)$ with $Q=A+3bz+2z^2(4R+zR')$ an isometry with an odd root. Thus its image has measure $\tfrac12\int|2zQ(z)|=1/12$, since a regular attained level has two rational roots of the prepared quadratic. It adds two preimages on a set of measure $1/3072$ in the original target.
+
+\section{Image on the reflected branch}
+Fix $c\equiv2\bmod4$, $c\ne2$, and set $d=v(c-2)$. Write $u=(1-c)^{-1}$.
+The other three input branches have disjoint images
+\[
+ 1+c+16\Z,\qquad 13+16\Z,\qquad 1+64C_{2d-4}.
+\]
+On the remaining input class put $V(z)=F_c(-1-4z)/u-1$. The binomial Pfaff identity for the terminating polynomial, or Euler's hypergeometric transformation with the two identical upper parameters, gives
+\[
+ 1+V(z)=\exp(\ell z) F_c(4z),\qquad \ell=-8\log(1+c-2).
+\]
+Indeed Euler's identity for the upper parameters $-n,-n$ gives $F_c(-1-n)=(1-c)^{-1-2n}F_c(n)$ as formal series in $c$ for natural $n$. Specialize the convergent series and use density at $n=4z$. Here $v(\ell)=d+3$. The reflected image is contained in $u+16\Z$ and is disjoint from the other images by reduction modulo 16.
+
+\begin{theorem}
+For $d=2$, the image of $V$ is $32\Z$ with one input per target. For $d\ge3$ write $t=d-3$, $j=\lfloor t/2\rfloor$, and $B_0=2\Z$, $B_1=\U\cup4\Z$. Then the image of $V$ is
+\[
+ 64\left(\bigcup_{0\le i<j}2^{3i}\U\ \cup\
+            2^{3j} B_{t\bmod2}\right).
+\]
+\end{theorem}
+\begin{proof}
+The coefficients of $V$ in degrees $1,2,3,\ge4$ have valuations $d+3,\ \ge2d+2,\ 6,\ \ge7$, respectively. For the quadratic bound use $16K+\ell^2/2$. The other bounds follow by multiplying the exponential and the branch through zero. For $d=2$ divide by 32 and apply the isometry criterion.
+
+For $d\ge3$, write $P=V/64$. At depth $i\le j$ set $g_i(w)=P(2^i w)/2^{3i}$. Its linear coefficient has valuation $t-2i$, its quadratic coefficient has valuation at least $2d-4-i>0$, its cubic coefficient is odd and all higher coefficients are even. For $i<j$ the odd half maps isometrically onto the odd half because the derivative is odd there and the reduction takes the value 1 there. The even half passes to the next depth with a factor 8. At $i=j$ and odd $t$ the odd half is still regular and the even half maps bijectively onto $4\Z$, since $g_j(2w)/4$ reduces coefficientwise to $w$. At even $t$ the even half maps bijectively onto $2\Z$ and the odd half is contained there. This proves the formula and the asserted disjointness of the shells.
+\end{proof}
+The total image measure near 2 follows by adding $1/8+I_{2d-4}/64$ to the measure of $V(\Z)$. The latter equals $1/32$ at $d=2$ and otherwise equals
+\[
+ 2^{-6}\left(\tfrac12\sum_{i=0}^{j-1}8^{-i}
+                   +8^{-j}\mu(B_{t\bmod2})\right),
+ \qquad \mu(B_0)=1/2,\quad\mu(B_1)=3/4 .
+\]
+The zero branch contributes $T_{2d-4}/64$ to the measure of triple levels. Only even $t\ge0$ adds another contribution. Put $g=g_j$ in that case and define $D(b)=2^{-v(b)}$ when $v(b)<3$ and $D(b)=1/12$ otherwise. The additional measure is
+\[
+ 2^{-6-3j}\,[D(g'(1))+D(g'(3))]/8 .
+\]
+To verify it, $(g(1+2s)-g(1))/4$ is integral of preparation degree two, since its quadratic coefficient is odd and all higher ones are even. Each regular attained level of the odd branch therefore has two points there and one on the even branch. Its normalized target measure is half the integral of $|g'|$ over the odd inputs. On $a+4\Z$, $a=1,3$, the derivative $g'$ maps bijectively onto $g'(a)+8\Z$ with scale 8 in the coordinate $(w-a)/4$. Indeed $g''(a)/2$ is odd and terms of order two or higher in this coordinate are divisible by 16. Averaging the absolute value on those balls gives $D$ as stated. Only two residues modulo 8 are required; they also follow from $(g(a+8)-g(a))/8\bmod8$.
+
+For odd $d\ge5$ the correction admits an explicit parameter formula.
+Write $e=(c-2)/2^d$. Then $g'(1)\equiv g'(3)\equiv 1-e\pmod8$ and the additional measure is $2^{-8-3j}D(1-e)$. Indeed the normalized linear coefficient is $-\log(1+2^d e)/2^d\equiv-e\bmod8$. The cubic coefficient is $B(c)$ modulo 8 by the exponential expansion. Each summand of $B(2)$ is integral, and replacing $2$ by $c$ multiplies the $k$th summand by $(1+2^{d-1}e)^k\equiv1\bmod8$. At $c=2$ the terms through $k=32$ sum to $3\bmod8$; the rest have valuation at least $1+k-2v(k)-\lfloor\log_2(k-1)\rfloor\ge3$. As $j\ge1$, degree four in $g$ contributes zero modulo 8 to its derivative, as do degrees five and higher by the factor $2^{(k-3)j}$. The quadratic bound gives the same conclusion in degree two. At odd arguments the cubic contributes $3\cdot3=1\bmod8$ as required.
+
+At $c=2$, the branch through zero has image $1+64 S_3$ and the reflection gives its negative. The two regular branches complete an injective image of measure $1/7$.
+\section{Quadratic branches}
+Suppose $c\equiv4\bmod16$. The two odd classes have combined image $5+16\Z$, with one point per level. For each $a=0,2$, use $H$ from the local table. The half derivative is an isometry, so let $\eta$ be its unique root and put $q=H''(\eta)/2$. Then $q$ is odd. The normalized image is the disjoint union
+\[
+ \bigl(H(\eta)+4q S_2\bigr)\ \cup\
+ \bigl(H(\eta+1)+8\Z\bigr).
+\]
+Indeed, write $H(\eta+w)-H(\eta)=qw^2+\sum_{k\ge3}b_kw^k$. Translation preserves the evenness of the higher coefficients. The half derivative remains affine modulo 2 as a restricted series, hence $4\mid b_k$ for odd $k\ge3$. At $w=2s$ the quotient by $4qs^2$ is therefore $1+8R(s)$ and has an analytic square root congruent to 1 modulo 2. This yields the first part. At odd $w$ the derivative has valuation 1. Each of the two odd residue classes modulo 4 maps bijectively onto a ball modulo 8. Their centers agree modulo 8 because the even powers of odd integers agree modulo 8 and the odd higher coefficients are divisible by 4. The even and odd parts have different parities relative to $H(\eta)$.
+Scaling by 128 and translating by $F_c(a)$ recovers the two original images. They are disjoint since $v(F_c(2)-1)=5$. Each has measure $1/768$. The global measure is thus $25/384$. Every noncritical attained level of an even branch has two inputs.
+
+Finally, if $r=v(c)\ge3$, write $F_c(x)=1+cx^2 U(x)$ with
+$U=1+(c/4)(x-1)^2+8R$. The latter bound follows from $(k-1)r-2v(k!)\ge3$ for $k\ge3$. On the even half $U(2s)/U(0)$ admits an analytic square root in $1+2\T$. On each odd class modulo 4 the linear coefficient of the variation divided by $8c$ is odd and the higher coefficients are even by the displayed expansion. The two odd centers agree modulo $2^{r+3}$ because $F_c(3)-F_c(1)=c(c+1)(c+8)$. This gives the disjoint image
+$(1+4K(c)S_2)\cup(1+c+2^{r+3}\Z)$ and two inputs at every attained level other than 1. Together with the constant case, all parameter classes in Theorem 1 now follow.
+\begin{thebibliography}{9}
+\bibitem{cohen} H. Cohen, On the 2-adic valuations of the truncated polylogarithm series, \emph{Fibonacci Quart.} 37 (1999), \href{https://www.fq.math.ca/Scanned/37-2/cohen.pdf}{Lemma 3}.
+\bibitem{grisa} C. A. Grisa, Delannoy valuation laws, archived revision 1.1.0, \href{https://doi.org/10.5281/zenodo.24316985}{Zenodo}.
+\bibitem{km} B. Kadets and D. Mangoubi, Root sharing and 2-adic interpolation for Legendre polynomials, \href{https://arxiv.org/abs/2611.09312}{arXiv:2611.09312} (2026).
+\bibitem{lengyel} T. Lengyel, On some $p$-adic properties and supercongruences of Delannoy and Schr\"oder numbers, \emph{Integers} 21 (2021), \href{https://math.colgate.edu/~integers/v86/v86.pdf}{A86}.
+\bibitem{sun} Z.-W. Sun, Arithmetic properties of Delannoy numbers and Schr\"oder numbers, \emph{J. Number Theory} 183 (2018), \href{https://arxiv.org/abs/1602.00574}{author's version}.
+\end{thebibliography}
+\medskip
+\noindent C\'esar Augusto Grisa, Independent Researcher, Caxias do Sul, RS, Brazil.\\
+\textit{Email:} \href{mailto:cagrisa@id.uff.br}{cagrisa@id.uff.br}
+\end{document}

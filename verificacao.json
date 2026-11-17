@@ -1,0 +1,11 @@
+{
+  "cubic": {
+    "unit_classes_tested": 64,
+    "root_precision_bits": 32,
+    "lambda_mod_2_51": 236259606035400,
+    "normalized_permutation_modulus": 256
+  },
+  "quadratic": {
+    "derivative_residues_checked": 64
+  }
+}
